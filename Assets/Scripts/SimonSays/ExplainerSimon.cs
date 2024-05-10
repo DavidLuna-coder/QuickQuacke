@@ -58,33 +58,44 @@ public class ExplainerSimon : MonoBehaviour
 
         if(PlayerTaskList.Count==PlayerSequenceList.Count)
         {
-            Debug.Log("NextRound");
+            Debug.Log("Victory");
+            PlayerTaskList.Clear();
             StartCoroutine(StartNextRound());
         }
     }
     public void StartGame()
     {
+        
         StartCoroutine (StartNextRound());
         startButton.SetActive(false);
     }
 
     public IEnumerator PlayerLost()
     {
+        buttons.interactable=false;
         audioSource.PlayOneShot(loseSound);
         PlayerTaskList.Clear();
         yield return new WaitForSeconds(2f);
         startButton.SetActive(true);
+        buttons.interactable=true;
     }
 
     public IEnumerator StartNextRound()
     {
+        
         PlayerSequenceList.Clear();
         buttons.interactable=false;
         yield return new WaitForSeconds(1f);
         PlayerTaskList.Add(Random.Range(0,4));
+        PlayerTaskList.Add(Random.Range(0,4));
+        PlayerTaskList.Add(Random.Range(0,4));
+        PlayerTaskList.Add(Random.Range(0,4));
+        PlayerTaskList.Add(Random.Range(0,4));
         foreach(int index in PlayerTaskList)
         {
+            Debug.Log(index);
             yield return StartCoroutine(HighlightButton(index));
+            yield return new WaitForSeconds(0.5f);
         }
         buttons.interactable=true;
         yield return null;
@@ -100,6 +111,8 @@ public class ExplainerSimon : MonoBehaviour
 
     void Start()
     {
+        
+        StartGame();
     }
 
     // Update is called once per frame
