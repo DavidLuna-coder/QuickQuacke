@@ -11,4 +11,14 @@ public class QuickCount : Minigame
         SceneManager.LoadScene("QuickCountMinigame");
         Debug.Log("Quick Count Minigame Scene - Loaded");
     }
+
+    public override GameState GetGameState()
+    {
+        return QuickCountGameManager.GameState;
+    }
+
+    public override bool IsFinished()
+    {
+        return QuickCountGameManager.IsFinished;
+    }
 }

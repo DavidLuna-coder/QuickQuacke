@@ -38,6 +38,7 @@ public class ExplainerSimon : MonoBehaviour
         
         
         PlayerTaskList=new List<int>();
+        SimonSaysStateManager.Reset();
     }
 
 
@@ -51,7 +52,7 @@ public class ExplainerSimon : MonoBehaviour
             {
                 StartCoroutine(PlayerLost());
                 Debug.Log("lost");
-                
+                SimonSaysStateManager.Lose();
                 return;
             }
         }
@@ -60,6 +61,7 @@ public class ExplainerSimon : MonoBehaviour
         {
             Debug.Log("Victory");
             PlayerTaskList.Clear();
+            SimonSaysStateManager.Win();
             //en lugar de volver a empezar que se bloqueen los botones por ejemplo y el usuario espere al paso a siguiente juego
             StartCoroutine(StartNextRound());
         }
@@ -95,7 +97,6 @@ public class ExplainerSimon : MonoBehaviour
         PlayerTaskList.Add(Random.Range(0,4));
         foreach(int index in PlayerTaskList)
         {
-            Debug.Log(index);
             yield return StartCoroutine(HighlightButton(index));
             yield return new WaitForSeconds(0.5f);
         }

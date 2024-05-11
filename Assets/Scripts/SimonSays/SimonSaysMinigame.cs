@@ -11,4 +11,14 @@ public class SimonSaysMinigame : Minigame
         SceneManager.LoadScene("JuegoPruebaAle");
         Debug.Log("Simon says minigame started");
     }
+
+    public override GameState GetGameState()
+    {
+        return SimonSaysStateManager.GameState;
+    }
+
+    public override bool IsFinished()
+    {
+        return SimonSaysStateManager.IsFinished;
+    }
 }
