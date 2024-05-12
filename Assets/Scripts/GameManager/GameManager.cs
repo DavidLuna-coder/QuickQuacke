@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     private Queue<Minigame> minigameQueue = new();
     public float delayBetweenMinigames = 10.0f;
     private bool timerStarted = false;
+    private bool resetTimer = false;
+    private Coroutine _timerCoroutine;
     private void Start()
     {
         if (Instance == null)
@@ -27,9 +29,28 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (currentMinigame != null && !timerStarted)
+        if (minigameQueue.Count == 0) return;
+        if (currentMinigame != null && !currentMinigame.IsFinished() && !timerStarted)
         {
-            StartCoroutine(StartMinigameTimer(delayBetweenMinigames));
+            if (_timerCoroutine != null)
+                StopCoroutine(_timerCoroutine);
+            _timerCoroutine = StartCoroutine(StartMinigameTimer(delayBetweenMinigames));
+        }
+
+        if(currentMinigame != null && currentMinigame.IsFinished())
+        {
+            Debug.Log(currentMinigame.GetGameState().ToString());
+            if(currentMinigame.GetGameState() == GameState.Win)
+            {
+                timerStarted = false;
+                Debug.Log("Minigame won");
+            }
+            else
+            {
+                timerStarted = false;
+                Debug.Log("Minigame lost");
+            }
+            StartNextMinigame();
         }
     }
     public void StartMinigames()
@@ -78,8 +99,14 @@ public class GameManager : MonoBehaviour
         timerStarted = true;
         Debug.Log("Starting minigame timer");
         yield return new WaitForSeconds(delay);
-
-        timerStarted = false;
-        StartNextMinigame();
+        if(resetTimer)
+        {
+            resetTimer = false;
+            timerStarted = false;
+            yield break;
+        }else{
+            timerStarted = false;
+            if(currentMinigame != null && !currentMinigame.IsFinished()) StartNextMinigame();
+        }
     }
 }

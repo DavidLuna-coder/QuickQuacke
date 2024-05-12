@@ -15,6 +15,10 @@ public class QuickCountHandler : MonoBehaviour
     //PROVISIONAL
     private bool fail;
 
+    void Awake()
+    {
+        QuickCountGameManager.Reset();
+    }
     void Start()
     {
         paintSquares();
@@ -43,11 +47,13 @@ public class QuickCountHandler : MonoBehaviour
                         currentTime = 0;
                         resetSquares();
                         paintSquares();
+
+                        QuickCountGameManager.Win();
                     
                     }else{
 
                         Debug.Log("Derrota");
-
+                        QuickCountGameManager.Lose();
                         //PROVISIONAL. Objetivo: Llevar al jugador a la escena principal por si quiere seguir intentandolo o directamente Game Over.
                         resetSquares();
                         fail = true;

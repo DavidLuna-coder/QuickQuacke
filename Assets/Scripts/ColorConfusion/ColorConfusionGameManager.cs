@@ -70,11 +70,13 @@ public class ColorConfusionGameManager : MonoBehaviour
         if (button.colors.normalColor == _correctColor)
         {
             Debug.Log("Respuesta correcta");
+            ColorConfusionStateManager.Win();
             UpdateWord();
             ChangeButtonsColor();
         }
         else
         {
+            ColorConfusionStateManager.Lose();
             Debug.Log("Respuesta incorrecta");
         }
     }

@@ -38,6 +38,7 @@ public class ExplainerSimon : MonoBehaviour
         
         
         PlayerTaskList=new List<int>();
+        SimonSaysStateManager.Reset();
     }
 
 
@@ -51,40 +52,53 @@ public class ExplainerSimon : MonoBehaviour
             {
                 StartCoroutine(PlayerLost());
                 Debug.Log("lost");
-                
+                SimonSaysStateManager.Lose();
                 return;
             }
         }
 
         if(PlayerTaskList.Count==PlayerSequenceList.Count)
         {
-            Debug.Log("NextRound");
+            Debug.Log("Victory");
+            PlayerTaskList.Clear();
+            SimonSaysStateManager.Win();
+            //en lugar de volver a empezar que se bloqueen los botones por ejemplo y el usuario espere al paso a siguiente juego
             StartCoroutine(StartNextRound());
         }
     }
     public void StartGame()
     {
+        
         StartCoroutine (StartNextRound());
         startButton.SetActive(false);
     }
 
     public IEnumerator PlayerLost()
     {
+        buttons.interactable=false;
         audioSource.PlayOneShot(loseSound);
         PlayerTaskList.Clear();
         yield return new WaitForSeconds(2f);
+        //esto siguiente es para repetir asi que nada se quitaría y se haría lo que tocara cuando pierdes
         startButton.SetActive(true);
+        buttons.interactable=true;
     }
 
     public IEnumerator StartNextRound()
     {
+        
         PlayerSequenceList.Clear();
         buttons.interactable=false;
         yield return new WaitForSeconds(1f);
         PlayerTaskList.Add(Random.Range(0,4));
+        PlayerTaskList.Add(Random.Range(0,4));
+        PlayerTaskList.Add(Random.Range(0,4));
+        PlayerTaskList.Add(Random.Range(0,4));
+        PlayerTaskList.Add(Random.Range(0,4));
         foreach(int index in PlayerTaskList)
         {
             yield return StartCoroutine(HighlightButton(index));
+            yield return new WaitForSeconds(0.5f);
         }
         buttons.interactable=true;
         yield return null;
@@ -100,6 +114,8 @@ public class ExplainerSimon : MonoBehaviour
 
     void Start()
     {
+
+        StartGame();
     }
 
     // Update is called once per frame

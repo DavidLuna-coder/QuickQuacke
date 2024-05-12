@@ -48,10 +48,12 @@ public class WordSorter : MonoBehaviour
         if (answer.ToLower() == solution.ToLower())
         {
             Debug.Log("Correct!");
+            WordSorterGameManager.Win();
         }
         else
         {
             Debug.Log("Incorrect!");
+            WordSorterGameManager.Lose();
         }
     }
 }
