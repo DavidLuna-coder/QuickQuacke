@@ -127,9 +127,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardBackButton: {fileID: 7841836966014254627}
-  cardBackBackground: {fileID: 4084823027645304631}
-  cardFrontBackground: {fileID: 0}
-  cardFrontImage: {fileID: 0}
+  cardBackBackground: {fileID: 8685863361551961243}
+  cardFrontBackground: {fileID: 3869069757304378421}
+  cardFrontImage: {fileID: 4084823027645304631}
   cardBack: {fileID: 7427569582592035598}
   cardFront: {fileID: 2802756937010379946}
   selectRotation: {x: 0, y: 180, z: 0}

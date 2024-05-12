@@ -22,6 +22,9 @@ public class Cards : MonoBehaviour
 
     private CardGroup cardGroup;
 
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip cardSound;
+
     private void Awake()
     {
         if(cardGroup == null)
@@ -41,10 +44,12 @@ public class Cards : MonoBehaviour
         cardBackButton.onClick.AddListener(OnClick);
         StartCoroutine(WaitingtoHide());
         MemoryManager.Instance.Subscribe(this);
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnClick()
     {
+        audioSource.PlayOneShot(cardSound);
         cardGroup.OnCardSelected(this);
     }
 

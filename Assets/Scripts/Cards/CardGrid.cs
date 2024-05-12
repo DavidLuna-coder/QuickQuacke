@@ -34,8 +34,8 @@ public class CardGrid : MonoBehaviour
         int difficulty = dif.Next(1, 4);
         switch(difficulty)
         {
-            case 1: cardsToShow = 4; break;
-            case 2: cardsToShow = 5; break;
+            case 1: cardsToShow = 5; break;
+            case 2: cardsToShow = 6; break;
             case 3: cardsToShow = 7; break;
             default : break;
         }
