@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor.VersionControl;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WordSorter : MonoBehaviour
 {
@@ -11,6 +12,17 @@ public class WordSorter : MonoBehaviour
     private TextMeshProUGUI lettersDisplayed;
     private TMP_InputField inputField;
     public List<string> sortedWords = new();
+
+    public GameObject PanelAux;
+
+    [SerializeField] Text[] countdown;
+
+    [SerializeField] private float countdownTime;
+
+    [SerializeField] private GameObject[] texts;
+
+    private float currentTime;
+    private bool start;
 
     void Start()
     {
@@ -55,5 +67,33 @@ public class WordSorter : MonoBehaviour
             Debug.Log("Incorrect!");
             WordSorterGameManager.Lose();
         }
+    }
+
+    void Update()
+    {
+        countdownTime -= Time.deltaTime;
+
+        countdown[0].text = countdownTime.ToString("F0");
+        countdown[1].text = countdownTime.ToString("F0");
+
+        currentTime += Time.deltaTime;
+
+         if(countdownTime < 0 && !start){
+
+            print("Empezando");
+            
+            start = true;
+            countdown[0].gameObject.SetActive(false);          
+            
+            texts[0].SetActive(false);
+            texts[1].SetActive(false);
+            PanelAux.SetActive(false);
+            
+
+
+            currentTime = 0;
+        }  
+
+
     }
 }

@@ -10,7 +10,16 @@ public class QuickCountHandler : MonoBehaviour
     [SerializeField] private int numSquares;
 
     [SerializeField] private float time;
+
+    [SerializeField] Text[] countdown;
+
+    [SerializeField] private float countdownTime;
+
+    [SerializeField] private GameObject[] texts;
+
     private float currentTime;
+
+    private bool start;
 
     //PROVISIONAL
     private bool fail;
@@ -21,12 +30,30 @@ public class QuickCountHandler : MonoBehaviour
     }
     void Start()
     {
-        paintSquares();
+        //paintSquares();
     }
 
     void Update()
     {
+        countdownTime -= Time.deltaTime;
+
+        countdown[0].text = countdownTime.ToString("F0");
+        countdown[1].text = countdownTime.ToString("F0");
+
         currentTime += Time.deltaTime;
+
+        if(countdownTime < 0 && !start){
+
+            print("Empezando");
+            paintSquares();
+            start = true;
+            countdown[0].gameObject.SetActive(false);          
+            
+            texts[0].SetActive(false);
+            texts[1].SetActive(false);
+
+            currentTime = 0;
+        }  
 
         if(time < currentTime && !fail)
         {
@@ -61,6 +88,8 @@ public class QuickCountHandler : MonoBehaviour
                 }
             }
         }
+
+              
     }
 
     private void paintSquares()
@@ -73,7 +102,7 @@ public class QuickCountHandler : MonoBehaviour
         {
             int randomSquare = Random.Range(0, auxList.Count);
 
-            auxList[randomSquare].GetComponent<Image>().color = Color.red;
+            auxList[randomSquare].SetActive(true);
             auxList.RemoveAt(randomSquare);
         }
     }
@@ -84,7 +113,7 @@ public class QuickCountHandler : MonoBehaviour
         for(int i = 0 ; i < list.Count ; i++)
         {
 
-            list[i].GetComponent<Image>().color = Color.white;
+            list[i].SetActive(false);
         }
     }
 }

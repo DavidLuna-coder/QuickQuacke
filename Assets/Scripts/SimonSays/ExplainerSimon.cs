@@ -17,6 +17,16 @@ public class ExplainerSimon : MonoBehaviour
 
     public CanvasGroup buttons;
     public GameObject startButton;
+    public GameObject PanelAux;
+
+    [SerializeField] Text[] countdown;
+
+    [SerializeField] private float countdownTime;
+
+    [SerializeField] private GameObject[] texts;
+
+    private float currentTime;
+    private bool start;
 
 
     void Awake()
@@ -61,9 +71,10 @@ public class ExplainerSimon : MonoBehaviour
         {
             Debug.Log("Victory");
             PlayerTaskList.Clear();
+            buttons.interactable=false;
             SimonSaysStateManager.Win();
             //en lugar de volver a empezar que se bloqueen los botones por ejemplo y el usuario espere al paso a siguiente juego
-            StartCoroutine(StartNextRound());
+            //StartCoroutine(StartNextRound());
         }
     }
     public void StartGame()
@@ -71,6 +82,7 @@ public class ExplainerSimon : MonoBehaviour
         
         StartCoroutine (StartNextRound());
         startButton.SetActive(false);
+        
     }
 
     public IEnumerator PlayerLost()
@@ -80,8 +92,8 @@ public class ExplainerSimon : MonoBehaviour
         PlayerTaskList.Clear();
         yield return new WaitForSeconds(2f);
         //esto siguiente es para repetir asi que nada se quitaría y se haría lo que tocara cuando pierdes
-        startButton.SetActive(true);
-        buttons.interactable=true;
+        /*startButton.SetActive(true);
+        buttons.interactable=true;*/
     }
 
     public IEnumerator StartNextRound()
@@ -89,16 +101,16 @@ public class ExplainerSimon : MonoBehaviour
         
         PlayerSequenceList.Clear();
         buttons.interactable=false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         PlayerTaskList.Add(Random.Range(0,4));
         PlayerTaskList.Add(Random.Range(0,4));
         PlayerTaskList.Add(Random.Range(0,4));
         PlayerTaskList.Add(Random.Range(0,4));
-        PlayerTaskList.Add(Random.Range(0,4));
+        //PlayerTaskList.Add(Random.Range(0,4));
         foreach(int index in PlayerTaskList)
         {
             yield return StartCoroutine(HighlightButton(index));
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.3f);
         }
         buttons.interactable=true;
         yield return null;
@@ -108,19 +120,42 @@ public class ExplainerSimon : MonoBehaviour
     {
         clickableButton[buttonId].GetComponent<Image>().color=buttonColors[buttonId][1];
         audioSource.PlayOneShot(ButtonAudioClipList[buttonId]);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         clickableButton[buttonId].GetComponent<Image>().color=buttonColors[buttonId][0];
     }
 
     void Start()
     {
-
-        StartGame();
+        startButton.SetActive(false);
+        //StartGame();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        countdownTime -= Time.deltaTime;
+
+        countdown[0].text = countdownTime.ToString("F0");
+        countdown[1].text = countdownTime.ToString("F0");
+
+        currentTime += Time.deltaTime;
+
+         if(countdownTime < 0 && !start){
+
+            print("Empezando");
+            StartGame();
+            start = true;
+            countdown[0].gameObject.SetActive(false);          
+            
+            texts[0].SetActive(false);
+            texts[1].SetActive(false);
+            PanelAux.SetActive(false);
+            
+
+
+            currentTime = 0;
+        }  
+
+
     }
 }
