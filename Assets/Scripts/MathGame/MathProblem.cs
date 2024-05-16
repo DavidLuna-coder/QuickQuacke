@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MathProblem : MonoBehaviour
 {
 
-    public Text firstNumber;
-    public Text secondNumber;
-    public Text answer1;
-    public Text answer2;
-    public Text operatorText;
+    public TMP_Text firstNumber;
+    public TMP_Text secondNumber;
+    public TMP_Text answer1;
+    public TMP_Text answer2;
+    public TMP_Text operatorText;
 
     public List<int> easyMathsList = new List<int> ();
     public int randomFirstNumber;
@@ -24,14 +25,17 @@ public class MathProblem : MonoBehaviour
     int answer2InProblem;
     int displayRandomAnswer;
     int randomAnswerPlacement;
+    int difficultyLevel;
     public int currentAnswer;
-    public Text rightOrWrongText;
+    public TMP_Text rightOrWrongText;
     int points = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        DisplayMathProblem(); 
+        difficultyLevel = Random.Range(0, 3); // dificultad. 3 niveles.
+        Debug.Log("Dificultad: " + difficultyLevel);
+        DisplayMathProblem(difficultyLevel); 
         rightOrWrongText.enabled = false;
     }
 
@@ -41,12 +45,12 @@ public class MathProblem : MonoBehaviour
         
     }
 
-    public void DisplayMathProblem()
+    public void DisplayMathProblem(int difficultyLevel)
     {
         randomFirstNumber = Random.Range(0, easyMathsList.Count + 1);
         randomSecondNumber = Random.Range(1, easyMathsList.Count + 1);
-        randomOperator = Random.Range(0, 3); // dificultad
-
+        randomOperator = Random.Range(0, 3); // operadores
+        
         firstNumberInProblem = randomFirstNumber;
         secondNumberInProblem = randomSecondNumber;
 
@@ -61,10 +65,27 @@ public class MathProblem : MonoBehaviour
                 answer1InProblem = firstNumberInProblem - secondNumberInProblem;
                 break;
             case 2:
+            if(difficultyLevel == 0)
+            {
+                randomFirstNumber = Random.Range(1, 10);
+                randomSecondNumber = Random.Range(1, 10);
+                firstNumberInProblem = randomFirstNumber;
+                secondNumberInProblem = randomSecondNumber;
+            }
+            else if (difficultyLevel == 1)
+            {
+                randomFirstNumber = Random.Range(1, 15);
+                randomSecondNumber = Random.Range(1, 10);
+                firstNumberInProblem = randomFirstNumber;
+                secondNumberInProblem = randomSecondNumber;
+            }
+            else if (difficultyLevel == 2)
+            {
                 randomFirstNumber = Random.Range(1, 20);
                 randomSecondNumber = Random.Range(1, 20);
                 firstNumberInProblem = randomFirstNumber;
                 secondNumberInProblem = randomSecondNumber;
+            }
                 operatorInProblem = '*';
                 answer1InProblem = firstNumberInProblem * secondNumberInProblem;
                 break;
@@ -108,15 +129,15 @@ public class MathProblem : MonoBehaviour
         if (currentAnswer == 0)
         {
             rightOrWrongText.enabled = true;
-            rightOrWrongText.color = Color.green;
-            rightOrWrongText.text = "Correct!";
+            rightOrWrongText.color = Color.magenta;
+            rightOrWrongText.text = "Puedes continuar";
             Invoke("TurnOffText", 1);
         }
         else
         {
             rightOrWrongText.enabled = true;
-            rightOrWrongText.color = Color.red;
-            rightOrWrongText.text = "Incorrect!";
+            rightOrWrongText.color = Color.black;
+            rightOrWrongText.text = "Se acabo tu prueba";
             Debug.Log("HAS PERDIDOO ");
         }
       
@@ -127,14 +148,14 @@ public class MathProblem : MonoBehaviour
         if (currentAnswer == 1)
         {
             rightOrWrongText.enabled = true;
-            rightOrWrongText.color = Color.green;
-            rightOrWrongText.text = "Correct!";
+            rightOrWrongText.color = Color.magenta;
+            rightOrWrongText.text = "Puedes continuar";
             Invoke("TurnOffText", 1);
         }
         else{
             rightOrWrongText.enabled = true;
-            rightOrWrongText.color = Color.red;
-            rightOrWrongText.text = "Incorrect!";
+            rightOrWrongText.color = Color.black;
+            rightOrWrongText.text = "Se acabo tu prueba!";
             Debug.Log("HAS PERDIDOO ");
 
         }
@@ -143,7 +164,7 @@ public class MathProblem : MonoBehaviour
     public void TurnOffText()
     {
         rightOrWrongText.enabled = false;
-        DisplayMathProblem();
+        DisplayMathProblem(difficultyLevel);
         points++;
         if(points == 10)
         {
