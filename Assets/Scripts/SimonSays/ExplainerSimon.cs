@@ -71,9 +71,10 @@ public class ExplainerSimon : MonoBehaviour
         {
             Debug.Log("Victory");
             PlayerTaskList.Clear();
+            buttons.interactable=false;
             SimonSaysStateManager.Win();
             //en lugar de volver a empezar que se bloqueen los botones por ejemplo y el usuario espere al paso a siguiente juego
-            StartCoroutine(StartNextRound());
+            //StartCoroutine(StartNextRound());
         }
     }
     public void StartGame()
@@ -91,8 +92,8 @@ public class ExplainerSimon : MonoBehaviour
         PlayerTaskList.Clear();
         yield return new WaitForSeconds(2f);
         //esto siguiente es para repetir asi que nada se quitaría y se haría lo que tocara cuando pierdes
-        startButton.SetActive(true);
-        buttons.interactable=true;
+        /*startButton.SetActive(true);
+        buttons.interactable=true;*/
     }
 
     public IEnumerator StartNextRound()
