@@ -17,7 +17,18 @@ public class QuickCountHandler : MonoBehaviour
 
     [SerializeField] private GameObject[] texts;
 
+    [SerializeField] private AudioClip correctClip;
+
+    [SerializeField] private AudioClip incorrectClip;
+
+    [SerializeField] private AudioClip countdownClip;
+
+    [SerializeField] private AudioSource audioSource;
+
+    [SerializeField] private string currentText;
+
     private float currentTime;
+
 
     private bool start;
 
@@ -30,19 +41,26 @@ public class QuickCountHandler : MonoBehaviour
     }
     void Start()
     {
-        //paintSquares();
+        currentText = countdown[0].text;
     }
 
     void Update()
     {
         countdownTime -= Time.deltaTime;
 
+        if(currentText != countdown[0].text && !start)
+        {
+            audioSource.PlayOneShot(countdownClip);
+            currentText = countdown[0].text;
+        }
+
         countdown[0].text = countdownTime.ToString("F0");
         countdown[1].text = countdownTime.ToString("F0");
 
         currentTime += Time.deltaTime;
 
-        if(countdownTime < 0 && !start){
+        if(countdownTime < 0 && !start)
+        {
 
             print("Empezando");
             paintSquares();
@@ -71,6 +89,7 @@ public class QuickCountHandler : MonoBehaviour
                     if(keyCode.ToString() == "Alpha" + numSquares)
                     {
                         Debug.Log("Acierto");
+                        audioSource.PlayOneShot(correctClip);
                         currentTime = 0;
                         resetSquares();
                         paintSquares();
@@ -80,6 +99,7 @@ public class QuickCountHandler : MonoBehaviour
                     }else{
 
                         Debug.Log("Derrota");
+                        audioSource.PlayOneShot(incorrectClip);
                         QuickCountGameManager.Lose();
                         //PROVISIONAL. Objetivo: Llevar al jugador a la escena principal por si quiere seguir intentandolo o directamente Game Over.
                         resetSquares();
@@ -87,9 +107,7 @@ public class QuickCountHandler : MonoBehaviour
                     }
                 }
             }
-        }
-
-              
+        }         
     }
 
     private void paintSquares()
