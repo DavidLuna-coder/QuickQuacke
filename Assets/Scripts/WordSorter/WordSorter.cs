@@ -21,11 +21,23 @@ public class WordSorter : MonoBehaviour
 
     [SerializeField] private GameObject[] texts;
 
+    
+    [SerializeField] private AudioClip correctClip;
+
+    [SerializeField] private AudioClip incorrectClip;
+
+    [SerializeField] private AudioClip countdownClip;
+
+    [SerializeField] private AudioSource audioSource;
+
+    [SerializeField] private string currentText;
+
     private float currentTime;
     private bool start;
 
     void Start()
     {
+        currentText = countdown[0].text;
         lettersDisplayed = GameObject.Find("MixedWord").GetComponent<TextMeshProUGUI>();
         inputField = GameObject.Find("Answer").GetComponent<TMP_InputField>();
         inputField.onEndEdit.AddListener(SubmitResult);
@@ -60,11 +72,13 @@ public class WordSorter : MonoBehaviour
         if (answer.ToLower() == solution.ToLower())
         {
             Debug.Log("Correct!");
+            audioSource.PlayOneShot(correctClip);
             WordSorterGameManager.Win();
         }
         else
         {
             Debug.Log("Incorrect!");
+            audioSource.PlayOneShot(incorrectClip);
             WordSorterGameManager.Lose();
         }
     }
@@ -73,6 +87,12 @@ public class WordSorter : MonoBehaviour
     {
         countdownTime -= Time.deltaTime;
 
+
+        if(currentText != countdown[0].text && !start)
+        {
+            audioSource.PlayOneShot(countdownClip);
+            currentText = countdown[0].text;
+        }
         countdown[0].text = countdownTime.ToString("F0");
         countdown[1].text = countdownTime.ToString("F0");
 

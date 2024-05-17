@@ -2202,6 +2202,9 @@ MonoBehaviour:
   - {fileID: 1129440981}
   loseSound: {fileID: 8300000, guid: 698335474b06e2544a6c1c2461b359ee, type: 3}
   audioSource: {fileID: 1720135726}
+  correctClip: {fileID: 8300000, guid: 31777f70beeab40458a6e64179ca167c, type: 3}
+  countdownClip: {fileID: 8300000, guid: ccb65784163d92c499d0ce0ad7b33e95, type: 3}
+  currentText: 
   buttons: {fileID: 1625333651}
   startButton: {fileID: 91645073}
   PanelAux: {fileID: 474078651}

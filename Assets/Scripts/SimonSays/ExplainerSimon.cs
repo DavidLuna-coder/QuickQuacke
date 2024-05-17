@@ -15,6 +15,13 @@ public class ExplainerSimon : MonoBehaviour
     public AudioClip loseSound;
     public AudioSource audioSource;
 
+    [SerializeField] private AudioClip correctClip;
+
+    [SerializeField] private AudioClip countdownClip;
+
+
+    [SerializeField] private string currentText;
+
     public CanvasGroup buttons;
     public GameObject startButton;
     public GameObject PanelAux;
@@ -70,6 +77,7 @@ public class ExplainerSimon : MonoBehaviour
         if(PlayerTaskList.Count==PlayerSequenceList.Count)
         {
             Debug.Log("Victory");
+            audioSource.PlayOneShot(correctClip);
             PlayerTaskList.Clear();
             buttons.interactable=false;
             SimonSaysStateManager.Win();
@@ -135,6 +143,12 @@ public class ExplainerSimon : MonoBehaviour
     {
         countdownTime -= Time.deltaTime;
 
+         if(currentText != countdown[0].text && !start)
+        {
+            audioSource.PlayOneShot(countdownClip);
+            currentText = countdown[0].text;
+        }
+        
         countdown[0].text = countdownTime.ToString("F0");
         countdown[1].text = countdownTime.ToString("F0");
 
