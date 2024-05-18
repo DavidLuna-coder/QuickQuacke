@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro;
 
 public class CardGroup : MonoBehaviour
 {
@@ -10,6 +11,14 @@ public class CardGroup : MonoBehaviour
 
     [SerializeField] private Sprite cardIdle;
     [SerializeField] private Sprite cardActive;
+    [SerializeField] private AudioClip correctClip;
+
+    [SerializeField] private AudioClip incorrectClip;
+
+    [SerializeField] public AudioClip countdownClip;
+    [SerializeField] public AudioClip werta;
+
+    [SerializeField] public AudioSource audioSource;
 
     public event EventHandler OnCardMatch;
 
@@ -28,6 +37,7 @@ public class CardGroup : MonoBehaviour
 
     public void OnCardSelected(Cards card)
     {
+        audioSource.PlayOneShot(werta);
         selectedCardList.Add(card);
         card.Select();
         card.GetCardFrontBackground().sprite = cardActive;
@@ -78,10 +88,13 @@ public class CardGroup : MonoBehaviour
         {
             if(card.name != firstCard.name)
             {
+                audioSource.PlayOneShot(incorrectClip);
                 return false;
+                
             }
             
         }
+        audioSource.PlayOneShot(correctClip);
         return true;
     }
 

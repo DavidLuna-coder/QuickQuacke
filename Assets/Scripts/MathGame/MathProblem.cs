@@ -33,6 +33,7 @@ public class MathProblem : MonoBehaviour
 
     public TMP_Text count;
     public TMP_Text title;
+    public TMP_Text title2;
     public Image imgBtn1;
     public Image imgBtn2;
     private int mostrar;
@@ -45,6 +46,8 @@ public class MathProblem : MonoBehaviour
     [SerializeField] private AudioClip countdownClip;
 
     [SerializeField] private AudioSource audioSource;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -95,6 +98,7 @@ public class MathProblem : MonoBehaviour
         count.enabled = false;
         Instrucciones.enabled = false;
         title.enabled = false;
+        title2.enabled = false;
         firstNumber.enabled = true;
         secondNumber.enabled = true;
         answer1.enabled = true;
@@ -102,6 +106,7 @@ public class MathProblem : MonoBehaviour
         operatorText.enabled = true;
         imgBtn1.enabled = true;
         imgBtn2.enabled = true;
+        
     }
 
     IEnumerator Esperar()
