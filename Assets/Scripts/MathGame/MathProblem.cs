@@ -12,6 +12,7 @@ public class MathProblem : MonoBehaviour
     public TMP_Text answer1;
     public TMP_Text answer2;
     public TMP_Text operatorText;
+    public TMP_Text Instrucciones;
 
     public List<int> easyMathsList = new List<int> ();
     public int randomFirstNumber;
@@ -30,19 +31,88 @@ public class MathProblem : MonoBehaviour
     public TMP_Text rightOrWrongText;
     int points = 0;
 
+    public TMP_Text count;
+    public TMP_Text title;
+    public TMP_Text title2;
+    public Image imgBtn1;
+    public Image imgBtn2;
+    private int mostrar;
+    private bool contar;
+
+    [SerializeField] private AudioClip correctClip;
+
+    [SerializeField] private AudioClip incorrectClip;
+
+    [SerializeField] private AudioClip countdownClip;
+
+    [SerializeField] private AudioSource audioSource;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         difficultyLevel = Random.Range(0, 3); // dificultad. 3 niveles.
         Debug.Log("Dificultad: " + difficultyLevel);
         DisplayMathProblem(difficultyLevel); 
+        contar = true;
+        mostrar = 3;
+        firstNumber.enabled = false;
+        secondNumber.enabled = false;
+        answer1.enabled = false;
+        answer2.enabled = false;
+        operatorText.enabled = false;
         rightOrWrongText.enabled = false;
+        imgBtn1.enabled = false;
+        imgBtn2.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void FixedUpdate()
+    {
+        
+        if(contar == true)
+        {
+            switch(mostrar)
+            {
+                case 0: Empezar(); break;
+                case 1: audioSource.PlayOneShot(countdownClip); count.text = "1"; StartCoroutine(Esperar()); break;
+                case 2: audioSource.PlayOneShot(countdownClip); count.text = "2"; StartCoroutine(Esperar());break;
+                case 3: audioSource.PlayOneShot(countdownClip); count.text = "3"; StartCoroutine(Esperar());break;
+                default : break;
+            }
+            
+            contar = false;
+            mostrar--;
+        }
+  
+    }
+
+    void Empezar()
+    {
+        count.enabled = false;
+        Instrucciones.enabled = false;
+        title.enabled = false;
+        title2.enabled = false;
+        firstNumber.enabled = true;
+        secondNumber.enabled = true;
+        answer1.enabled = true;
+        answer2.enabled = true;
+        operatorText.enabled = true;
+        imgBtn1.enabled = true;
+        imgBtn2.enabled = true;
+        
+    }
+
+    IEnumerator Esperar()
+    {
+        yield return new WaitForSeconds(1);
+        contar  = true;
     }
 
     public void DisplayMathProblem(int difficultyLevel)
@@ -128,16 +198,20 @@ public class MathProblem : MonoBehaviour
     {
         if (currentAnswer == 0)
         {
+            audioSource.PlayOneShot(correctClip);
             rightOrWrongText.enabled = true;
             rightOrWrongText.color = Color.magenta;
             rightOrWrongText.text = "Puedes continuar";
+            
             Invoke("TurnOffText", 1);
         }
         else
         {
+            audioSource.PlayOneShot(incorrectClip);
             rightOrWrongText.enabled = true;
             rightOrWrongText.color = Color.black;
             rightOrWrongText.text = "Se acabo tu prueba";
+            
             Debug.Log("HAS PERDIDOO ");
         }
       
@@ -147,15 +221,19 @@ public class MathProblem : MonoBehaviour
     {
         if (currentAnswer == 1)
         {
+            audioSource.PlayOneShot(correctClip);
             rightOrWrongText.enabled = true;
             rightOrWrongText.color = Color.magenta;
             rightOrWrongText.text = "Puedes continuar";
+            
             Invoke("TurnOffText", 1);
         }
         else{
+            audioSource.PlayOneShot(incorrectClip);
             rightOrWrongText.enabled = true;
             rightOrWrongText.color = Color.black;
             rightOrWrongText.text = "Se acabo tu prueba!";
+            
             Debug.Log("HAS PERDIDOO ");
 
         }

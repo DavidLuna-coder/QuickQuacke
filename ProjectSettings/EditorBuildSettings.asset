@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ColorConfusion.unity
     guid: af080fd794214254b8e0ff23790d00a5
+  - enabled: 1
+    path: Assets/Scenes/MemoryCardsInitial.unity
+    guid: 49d323a527565384f8e2d2b27a81ddff
+  - enabled: 1
+    path: Assets/Scenes/MemoryCards.unity
+    guid: 5c68aab61b08d4a4dbe2746e5fa25559
   m_configObjects: {}

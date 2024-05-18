@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using TMPro;
 public class Cards : MonoBehaviour
 {
     [SerializeField] private Button cardBackButton;
@@ -22,7 +23,7 @@ public class Cards : MonoBehaviour
 
     private CardGroup cardGroup;
 
-    private AudioSource audioSource;
+    public AudioSource audioSource;
     [SerializeField] private AudioClip cardSound;
 
     private void Awake()
@@ -39,12 +40,23 @@ public class Cards : MonoBehaviour
         
     }
 
+
     private void Start()
     {
+        if(cardGroup == null)
+        {
+            cardGroup = transform.parent.GetComponent<CardGroup>();
+        }
+       
+        if(cardGroup != null)
+        {
+          cardGroup.Subscribe(this);
+        }
+        
         cardBackButton.onClick.AddListener(OnClick);
         StartCoroutine(WaitingtoHide());
         MemoryManager.Instance.Subscribe(this);
-        audioSource = GetComponent<AudioSource>();
+        
     }
 
     private void OnClick()
@@ -57,6 +69,7 @@ public class Cards : MonoBehaviour
     {
         yield return new WaitForSeconds(3.0f);
         tweener[2] = transform.DORotate(doSelectRotation, duration).SetEase(Ease.InOutElastic).OnUpdate(CheckWaitingToHide);
+        cardGroup.audioSource.PlayOneShot(cardGroup.werta);
     }
 
     private void CheckWaitingToHide()
