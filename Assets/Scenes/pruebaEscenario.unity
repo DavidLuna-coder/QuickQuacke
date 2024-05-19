@@ -4019,7 +4019,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 8
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -4047,7 +4047,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 1.8970642, w: 96.29203}
+  m_margin: {x: 0, y: 0, z: 40.840485, w: 96.29203}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4207,7 +4207,7 @@ MonoBehaviour:
   dialogue:
     name: "Cient\xEDfico"
     sentences:
-    - sentence: "Ponte aqu\xED y respira hondo. La siguientes pruebas te pondr\xE1n
+    - sentence: "Ponte aqu\xED y respira hondo. Las siguientes pruebas te pondr\xE1n
         al l\xEDmite de tu capacidad mental. Las llamamos Quick Quacke."
       expression: 0
       audio: {fileID: 8300000, guid: 55fc64d17ed29dc4aa1b4eeea7f2c856, type: 3}
@@ -19661,7 +19661,7 @@ MonoBehaviour:
   dialogue:
     name: Luisa
     sentences:
-    - sentence: "Vale... \xBFQu\xE9 est\xE1 pasando?\r"
+    - sentence: "Vale... \xBFEspera qu\xE9 est\xE1 pasando?\r"
       expression: 3
       audio: {fileID: 8300000, guid: b2e0ad3df26a74041bf9a89915fd9e50, type: 3}
     expressionsSprites:
