@@ -123,6 +123,42 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &208695106
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 208695107}
+  m_Layer: 0
+  m_Name: Luisa
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &208695107
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208695106}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1790110216}
+  - {fileID: 1362206598}
+  - {fileID: 1461191430}
+  - {fileID: 1677266488}
+  - {fileID: 1795282869}
+  m_Father: {fileID: 978818477}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &275222250
 GameObject:
   m_ObjectHideFlags: 0
@@ -3982,7 +4018,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -4011,7 +4047,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 395.7752, w: 96.29203}
+  m_margin: {x: 0, y: 0, z: 1.8970642, w: 96.29203}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4124,6 +4160,69 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &717402809
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 717402810}
+  - component: {fileID: 717402811}
+  m_Layer: 0
+  m_Name: C4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &717402810
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717402809}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 945810923}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &717402811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717402809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec58e7d99db0014096409ce4cfa2db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: "Cient\xEDfico"
+    sentences:
+    - sentence: "Ponte aqu\xED y respira hondo. La siguientes pruebas te pondr\xE1n
+        al l\xEDmite de tu capacidad mental. Las llamamos Quick Quacke."
+      expression: 0
+      audio: {fileID: 8300000, guid: 55fc64d17ed29dc4aa1b4eeea7f2c856, type: 3}
+    expressionsSprites:
+    - expression: 0
+      sprite: {fileID: 21300000, guid: 91d70cacf88190c46a2b4e6f4fa7c136, type: 3}
+    - expression: 1
+      sprite: {fileID: 21300000, guid: 66259cd4a6f4627409c048009ac3eeae, type: 3}
+    - expression: 3
+      sprite: {fileID: 21300000, guid: f045c8f10284b784098dc7c033e6beb5, type: 3}
+    - expression: 2
+      sprite: {fileID: 21300000, guid: e57d876711487394f9c4ffaf39bcd266, type: 3}
+    uLipSyncTexture: {fileID: 1000817025}
+    mouthSprite: {fileID: 2100000, guid: aab925908a6d6c843a88af3ee961905f, type: 2}
+  nextDialogue: {fileID: 1795282868}
 --- !u!1 &741635102
 GameObject:
   m_ObjectHideFlags: 0
@@ -16499,6 +16598,104 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &937208608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 937208609}
+  - component: {fileID: 937208610}
+  m_Layer: 0
+  m_Name: C1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &937208609
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937208608}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 945810923}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &937208610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937208608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec58e7d99db0014096409ce4cfa2db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: "Cient\xEDfico"
+    sentences:
+    - sentence: "No te apresures. No eres m\xE1s que una de los 29.812 candidatos
+        para el puesto."
+      expression: 0
+      audio: {fileID: 8300000, guid: 5c7ff7ec8155de84cb55e040ea357c24, type: 3}
+    expressionsSprites:
+    - expression: 0
+      sprite: {fileID: 21300000, guid: 91d70cacf88190c46a2b4e6f4fa7c136, type: 3}
+    - expression: 1
+      sprite: {fileID: 21300000, guid: 66259cd4a6f4627409c048009ac3eeae, type: 3}
+    - expression: 3
+      sprite: {fileID: 21300000, guid: f045c8f10284b784098dc7c033e6beb5, type: 3}
+    - expression: 2
+      sprite: {fileID: 21300000, guid: e57d876711487394f9c4ffaf39bcd266, type: 3}
+    uLipSyncTexture: {fileID: 1000817025}
+    mouthSprite: {fileID: 2100000, guid: aab925908a6d6c843a88af3ee961905f, type: 2}
+  nextDialogue: {fileID: 1362206599}
+--- !u!1 &945810922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 945810923}
+  m_Layer: 0
+  m_Name: "Cient\xEDfico"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &945810923
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945810922}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 937208609}
+  - {fileID: 1508735085}
+  - {fileID: 1302947535}
+  - {fileID: 717402810}
+  m_Father: {fileID: 978818477}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &978818476
 GameObject:
   m_ObjectHideFlags: 0
@@ -16533,6 +16730,8 @@ Transform:
   - {fileID: 275222251}
   - {fileID: 2072428426}
   - {fileID: 2066921047}
+  - {fileID: 208695107}
+  - {fileID: 945810923}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1000817023
@@ -17336,6 +17535,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1292504915}
   m_CullTransparentMesh: 1
+--- !u!1 &1302947534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1302947535}
+  - component: {fileID: 1302947536}
+  m_Layer: 0
+  m_Name: C3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1302947535
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302947534}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 945810923}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1302947536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302947534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec58e7d99db0014096409ce4cfa2db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: "Cient\xEDfico"
+    sentences:
+    - sentence: "En el correo dec\xEDa que era vuestro primer d\xEDa, no pon\xEDa
+        nada del \xFAltimo. Solo se quedar\xE1 uno."
+      expression: 2
+      audio: {fileID: 8300000, guid: 6b6468b1b60472b48a539bbbe7af8063, type: 3}
+    expressionsSprites:
+    - expression: 0
+      sprite: {fileID: 21300000, guid: 91d70cacf88190c46a2b4e6f4fa7c136, type: 3}
+    - expression: 1
+      sprite: {fileID: 21300000, guid: 66259cd4a6f4627409c048009ac3eeae, type: 3}
+    - expression: 3
+      sprite: {fileID: 21300000, guid: f045c8f10284b784098dc7c033e6beb5, type: 3}
+    - expression: 2
+      sprite: {fileID: 21300000, guid: e57d876711487394f9c4ffaf39bcd266, type: 3}
+    uLipSyncTexture: {fileID: 1000817025}
+    mouthSprite: {fileID: 2100000, guid: aab925908a6d6c843a88af3ee961905f, type: 2}
+  nextDialogue: {fileID: 717402811}
 --- !u!1 &1349873602
 GameObject:
   m_ObjectHideFlags: 0
@@ -17419,7 +17681,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1142052371}
+      - m_Target: {fileID: 1790110217}
         m_TargetAssemblyTypeName: DialogueTrigger, Assembly-CSharp
         m_MethodName: TriggerDialogue
         m_Mode: 1
@@ -17469,6 +17731,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1349873602}
   m_CullTransparentMesh: 1
+--- !u!1 &1362206597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1362206598}
+  - component: {fileID: 1362206599}
+  m_Layer: 0
+  m_Name: L2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1362206598
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362206597}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 208695107}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1362206599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362206597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec58e7d99db0014096409ce4cfa2db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Luisa
+    sentences:
+    - sentence: "\xA1\xBFC\xF3mo?!"
+      expression: 2
+      audio: {fileID: 8300000, guid: e0165b9b25d47484289e024e836d4bbc, type: 3}
+    expressionsSprites:
+    - expression: 0
+      sprite: {fileID: 21300000, guid: 90f132253b2c2ca4e8c6c098957133bc, type: 3}
+    - expression: 1
+      sprite: {fileID: 21300000, guid: 962565e54ff0b5b4e8cc7ef6aa2297af, type: 3}
+    - expression: 2
+      sprite: {fileID: 21300000, guid: fc419ff59d231574badfa761ffc52732, type: 3}
+    - expression: 3
+      sprite: {fileID: 21300000, guid: a2b3ae2cc8d5bc84f86606f46ee8df71, type: 3}
+    uLipSyncTexture: {fileID: 1257220535}
+    mouthSprite: {fileID: 2100000, guid: 940d66e62d7a4134e895cfd1de91ac11, type: 2}
+  nextDialogue: {fileID: 1461191429}
 --- !u!1 &1385215330
 GameObject:
   m_ObjectHideFlags: 0
@@ -17579,6 +17903,193 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1385215330}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1461191428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1461191430}
+  - component: {fileID: 1461191429}
+  m_Layer: 0
+  m_Name: L3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1461191429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1461191428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec58e7d99db0014096409ce4cfa2db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Luisa
+    sentences:
+    - sentence: "\xA1Pensaba que era la \xFAnica! \xBFHoy no es mi primer d\xEDa?\r"
+      expression: 1
+      audio: {fileID: 8300000, guid: 5a6bb537ff4bb2e43a5eec60aa82750a, type: 3}
+    expressionsSprites:
+    - expression: 0
+      sprite: {fileID: 21300000, guid: 90f132253b2c2ca4e8c6c098957133bc, type: 3}
+    - expression: 1
+      sprite: {fileID: 21300000, guid: 962565e54ff0b5b4e8cc7ef6aa2297af, type: 3}
+    - expression: 2
+      sprite: {fileID: 21300000, guid: fc419ff59d231574badfa761ffc52732, type: 3}
+    - expression: 3
+      sprite: {fileID: 21300000, guid: a2b3ae2cc8d5bc84f86606f46ee8df71, type: 3}
+    uLipSyncTexture: {fileID: 1257220535}
+    mouthSprite: {fileID: 2100000, guid: 940d66e62d7a4134e895cfd1de91ac11, type: 2}
+  nextDialogue: {fileID: 1508735086}
+--- !u!4 &1461191430
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1461191428}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 208695107}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1508735084
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1508735085}
+  - component: {fileID: 1508735086}
+  m_Layer: 0
+  m_Name: C2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1508735085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508735084}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 945810923}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1508735086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508735084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec58e7d99db0014096409ce4cfa2db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: "Cient\xEDfico"
+    sentences:
+    - sentence: "Cuida ese tono muchacha. Hoy es el d\xEDa en el que se decidir\xE1
+        quien tomar\xE1 el puesto."
+      expression: 1
+      audio: {fileID: 8300000, guid: a3bd5d21fc180834d98761355d10b9be, type: 3}
+    expressionsSprites:
+    - expression: 0
+      sprite: {fileID: 21300000, guid: 91d70cacf88190c46a2b4e6f4fa7c136, type: 3}
+    - expression: 1
+      sprite: {fileID: 21300000, guid: 66259cd4a6f4627409c048009ac3eeae, type: 3}
+    - expression: 3
+      sprite: {fileID: 21300000, guid: f045c8f10284b784098dc7c033e6beb5, type: 3}
+    - expression: 2
+      sprite: {fileID: 21300000, guid: e57d876711487394f9c4ffaf39bcd266, type: 3}
+    uLipSyncTexture: {fileID: 1000817025}
+    mouthSprite: {fileID: 2100000, guid: aab925908a6d6c843a88af3ee961905f, type: 2}
+  nextDialogue: {fileID: 1677266487}
+--- !u!1 &1677266486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1677266488}
+  - component: {fileID: 1677266487}
+  m_Layer: 0
+  m_Name: L4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1677266487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677266486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec58e7d99db0014096409ce4cfa2db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Luisa
+    sentences:
+    - sentence: "\xA1Me hab\xE9is enga\xF1ado!\r"
+      expression: 1
+      audio: {fileID: 8300000, guid: 87681f4ddcd70af4c8242002a9344bf3, type: 3}
+    expressionsSprites:
+    - expression: 0
+      sprite: {fileID: 21300000, guid: 90f132253b2c2ca4e8c6c098957133bc, type: 3}
+    - expression: 1
+      sprite: {fileID: 21300000, guid: 962565e54ff0b5b4e8cc7ef6aa2297af, type: 3}
+    - expression: 2
+      sprite: {fileID: 21300000, guid: fc419ff59d231574badfa761ffc52732, type: 3}
+    - expression: 3
+      sprite: {fileID: 21300000, guid: a2b3ae2cc8d5bc84f86606f46ee8df71, type: 3}
+    uLipSyncTexture: {fileID: 1257220535}
+    mouthSprite: {fileID: 2100000, guid: 940d66e62d7a4134e895cfd1de91ac11, type: 2}
+  nextDialogue: {fileID: 1302947536}
+--- !u!4 &1677266488
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677266486}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 208695107}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1770354669
 GameObject:
   m_ObjectHideFlags: 0
@@ -19055,6 +19566,131 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1790110215
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1790110216}
+  - component: {fileID: 1790110217}
+  m_Layer: 0
+  m_Name: L1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1790110216
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790110215}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 208695107}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1790110217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790110215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec58e7d99db0014096409ce4cfa2db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Luisa
+    sentences:
+    - sentence: "A\xFAn no me puedo creer que me hay\xE1is elegido a m\xED. Siempre
+        fue mi sue\xF1o trabajar para la NAZA."
+      expression: 0
+      audio: {fileID: 8300000, guid: 25e051536f508d84a985f11748ab534e, type: 3}
+    expressionsSprites:
+    - expression: 0
+      sprite: {fileID: 21300000, guid: 90f132253b2c2ca4e8c6c098957133bc, type: 3}
+    - expression: 1
+      sprite: {fileID: 21300000, guid: 962565e54ff0b5b4e8cc7ef6aa2297af, type: 3}
+    - expression: 2
+      sprite: {fileID: 21300000, guid: fc419ff59d231574badfa761ffc52732, type: 3}
+    - expression: 3
+      sprite: {fileID: 21300000, guid: a2b3ae2cc8d5bc84f86606f46ee8df71, type: 3}
+    uLipSyncTexture: {fileID: 1257220535}
+    mouthSprite: {fileID: 2100000, guid: 940d66e62d7a4134e895cfd1de91ac11, type: 2}
+  nextDialogue: {fileID: 937208610}
+--- !u!1 &1795282867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1795282869}
+  - component: {fileID: 1795282868}
+  m_Layer: 0
+  m_Name: L5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1795282868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795282867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec58e7d99db0014096409ce4cfa2db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Luisa
+    sentences:
+    - sentence: "Vale... \xBFQu\xE9 est\xE1 pasando?\r"
+      expression: 3
+      audio: {fileID: 8300000, guid: b2e0ad3df26a74041bf9a89915fd9e50, type: 3}
+    expressionsSprites:
+    - expression: 0
+      sprite: {fileID: 21300000, guid: 90f132253b2c2ca4e8c6c098957133bc, type: 3}
+    - expression: 1
+      sprite: {fileID: 21300000, guid: 962565e54ff0b5b4e8cc7ef6aa2297af, type: 3}
+    - expression: 2
+      sprite: {fileID: 21300000, guid: fc419ff59d231574badfa761ffc52732, type: 3}
+    - expression: 3
+      sprite: {fileID: 21300000, guid: a2b3ae2cc8d5bc84f86606f46ee8df71, type: 3}
+    uLipSyncTexture: {fileID: 1257220535}
+    mouthSprite: {fileID: 2100000, guid: 940d66e62d7a4134e895cfd1de91ac11, type: 2}
+  nextDialogue: {fileID: 0}
+--- !u!4 &1795282869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795282867}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 208695107}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1980196661
 GameObject:
   m_ObjectHideFlags: 0
