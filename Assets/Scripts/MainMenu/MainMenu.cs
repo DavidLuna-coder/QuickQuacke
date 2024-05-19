@@ -23,8 +23,8 @@ public class MainMenu : MonoBehaviour
     public IEnumerator WaitForSound()
     {
         audioSource.PlayOneShot(buttonClip);
-        yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene("pruebaEscenario");
+        yield return new WaitUntil(() => !audioSource.isPlaying);
+        GameManager.Instance.StartMinigames();
     }
     void Start()
     {
