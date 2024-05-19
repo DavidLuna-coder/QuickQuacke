@@ -6,13 +6,14 @@ using UnityEngine.UI;
 
 public class ColorConfusionGameManager : MonoBehaviour
 {
+    private const int POINTS_TO_WIN = 3;
     public Button wordText; // Referencia al TextMeshProUGUI donde se mostrará la palabra
     public List<Button> answersButtons;
     private Color _correctColor;
     private Color[] colors = new Color[] { Color.yellow, Color.green, Color.red, Color.cyan, Color.magenta, Color.white }; // Array de colores disponibles
     private string[] words = new string[] { "Amarillo", "Verde", "Rojo", "Azul", "Magenta", "Blanco" }; // Array de palabras disponibles
     private Dictionary<string, Color> _wordColorDictionary = new Dictionary<string, Color>();
-
+    private int _correctAnswers = 0;
     [SerializeField] Text[] countdown;
 
     [SerializeField] private float countdownTime;
@@ -127,7 +128,12 @@ public class ColorConfusionGameManager : MonoBehaviour
         if (button.colors.normalColor == _correctColor)
         {
             Debug.Log("Respuesta correcta");
-            ColorConfusionStateManager.Win();
+            _correctAnswers++;
+            if(_correctAnswers == POINTS_TO_WIN)
+            {
+                ColorConfusionStateManager.Win();
+                return;
+            }
             audioSource.PlayOneShot(correctClip);
             UpdateWord();
             ChangeButtonsColor();

@@ -6,7 +6,7 @@ using TMPro;
 
 public class MathProblem : MonoBehaviour
 {
-
+    private const int POINTS_TO_WIN = 3;
     public TMP_Text firstNumber;
     public TMP_Text secondNumber;
     public TMP_Text answer1;
@@ -38,7 +38,7 @@ public class MathProblem : MonoBehaviour
     public Image imgBtn2;
     private int mostrar;
     private bool contar;
-
+    private int _correctAnswers = 0;
     [SerializeField] private AudioClip correctClip;
 
     [SerializeField] private AudioClip incorrectClip;
@@ -202,7 +202,13 @@ public class MathProblem : MonoBehaviour
             rightOrWrongText.enabled = true;
             rightOrWrongText.color = Color.magenta;
             rightOrWrongText.text = "Puedes continuar";
-            MathProblemGameManager.Win();
+            _correctAnswers++;
+            if(_correctAnswers == POINTS_TO_WIN)
+            {
+                Debug.Log("HAS GANADO");
+                MathProblemGameManager.Win();
+                return;
+            }
             Invoke(nameof(TurnOffText), 1);
         }
         else
@@ -225,7 +231,13 @@ public class MathProblem : MonoBehaviour
             rightOrWrongText.enabled = true;
             rightOrWrongText.color = Color.magenta;
             rightOrWrongText.text = "Puedes continuar";
-            MathProblemGameManager.Win();
+            _correctAnswers++;
+            if(_correctAnswers == POINTS_TO_WIN)
+            {
+                Debug.Log("HAS GANADO");
+                MathProblemGameManager.Win();
+                return;
+            }
             Invoke("TurnOffText", 1);
         }
         else{

@@ -29,6 +29,8 @@ public class QuickCountHandler : MonoBehaviour
 
     private float currentTime;
 
+    private const int POINTS_TO_WIN = 3;
+    private int _correctAnswers = 0;
 
     private bool start;
 
@@ -93,8 +95,12 @@ public class QuickCountHandler : MonoBehaviour
                         currentTime = 0;
                         resetSquares();
                         paintSquares();
-
-                        QuickCountGameManager.Win();
+                        _correctAnswers++;
+                        if(_correctAnswers == POINTS_TO_WIN)
+                        {
+                            QuickCountGameManager.Win();
+                            return;
+                        }
                     
                     }else{
 
@@ -114,7 +120,7 @@ public class QuickCountHandler : MonoBehaviour
     {
         List<GameObject> auxList = new List<GameObject>(list);
 
-        numSquares = Random.Range(1, 10);   
+        numSquares = Random.Range(5, 10);   
 
         for(int i = 0 ; i < numSquares ; i++)
         {

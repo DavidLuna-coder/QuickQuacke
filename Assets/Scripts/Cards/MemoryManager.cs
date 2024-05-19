@@ -36,7 +36,8 @@ public class MemoryManager : MonoBehaviour
         }*/
         if (cardsList.All(x => x.GetObjectMatch()))
         {
-            Debug.Log("GANAMOOOOOOOOOOOOOOOOOOOOS"); 
+            Debug.Log("GANAMOOOOOOOOOOOOOOOOOOOOS");
+            CardsGameManager.Win();
             StartCoroutine(OnCompleteGame());
         }
     }

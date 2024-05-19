@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: f7df22800f8dc7048815f381612cd732
+  - enabled: 1
+    path: Assets/Scenes/Matematicas.unity
+    guid: eb872d5827f3c9441ac5243db53b3973
   m_configObjects: {}
