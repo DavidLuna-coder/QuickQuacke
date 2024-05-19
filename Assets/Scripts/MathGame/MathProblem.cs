@@ -202,8 +202,8 @@ public class MathProblem : MonoBehaviour
             rightOrWrongText.enabled = true;
             rightOrWrongText.color = Color.magenta;
             rightOrWrongText.text = "Puedes continuar";
-            
-            Invoke("TurnOffText", 1);
+            MathProblemGameManager.Win();
+            Invoke(nameof(TurnOffText), 1);
         }
         else
         {
@@ -211,7 +211,7 @@ public class MathProblem : MonoBehaviour
             rightOrWrongText.enabled = true;
             rightOrWrongText.color = Color.black;
             rightOrWrongText.text = "Se acabo tu prueba";
-            
+            MathProblemGameManager.Lose();
             Debug.Log("HAS PERDIDOO ");
         }
       
@@ -225,7 +225,7 @@ public class MathProblem : MonoBehaviour
             rightOrWrongText.enabled = true;
             rightOrWrongText.color = Color.magenta;
             rightOrWrongText.text = "Puedes continuar";
-            
+            MathProblemGameManager.Win();
             Invoke("TurnOffText", 1);
         }
         else{
@@ -233,7 +233,7 @@ public class MathProblem : MonoBehaviour
             rightOrWrongText.enabled = true;
             rightOrWrongText.color = Color.black;
             rightOrWrongText.text = "Se acabo tu prueba!";
-            
+            MathProblemGameManager.Lose();
             Debug.Log("HAS PERDIDOO ");
 
         }

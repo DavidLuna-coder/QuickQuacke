@@ -638,6 +638,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 938868574}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &704458279
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 704458280}
+  - component: {fileID: 704458281}
+  m_Layer: 0
+  m_Name: MathMinigameStarter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &704458280
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704458279}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 938868574}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &704458281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704458279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e8573c229f51754b8349562acab570e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &785163711
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,6 +953,7 @@ Transform:
   - {fileID: 1260552746}
   - {fileID: 1439458284}
   - {fileID: 648847754}
+  - {fileID: 704458280}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &938868575
@@ -1013,6 +1058,7 @@ MonoBehaviour:
   - {fileID: 1260552747}
   - {fileID: 1439458285}
   - {fileID: 648847753}
+  - {fileID: 704458281}
   delayBetweenMinigames: 10
 --- !u!4 &1422751949
 Transform:
