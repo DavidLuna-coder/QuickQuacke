@@ -30,6 +30,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue, DialogueTrigger trigger)
     {
+        Destroy(CharacterMouth.material);
         Debug.Log("Starting conversation with " + dialogue.name);
         sentences.Clear();
         foreach (Sentence sentence in dialogue.sentences)
@@ -42,7 +43,7 @@ public class DialogueManager : MonoBehaviour
         dialogue.uLipSyncTexture.targetRenderer = CharacterMouth;
         uLipSync.onLipSyncUpdate.RemoveAllListeners();
         uLipSync.onLipSyncUpdate.AddListener(dialogue.uLipSyncTexture.OnLipSyncUpdate);
-
+        animator.SetBool("IsOpen", true);
         DisplayNextSentence(dialogue, trigger);
     }
 
@@ -60,7 +61,7 @@ public class DialogueManager : MonoBehaviour
         
 
         Debug.Log(sentence.sentence);
-        //StopAllCoroutines();
+        StopAllCoroutines();
         audioSource = uLipSync.gameObject.GetComponent<AudioSource>();
         audioSource.clip = sentence?.audio;
         audioSource.Play();
@@ -80,12 +81,12 @@ public class DialogueManager : MonoBehaviour
     }
     void EndDialogue(Dialogue dialogue, DialogueTrigger trigger)
     {
-        //animator.SetBool("IsOpen", false);
         if(trigger.nextDialogue!=null)
         {
             CharacterImage.sprite = null;
-            Destroy(CharacterMouth.material);
             dialogue.uLipSyncTexture.targetRenderer = null;
+        }else{
+            animator.SetBool("IsOpen", false);
         }
         trigger.TriggerNextDialogue();
         Debug.Log("End of conversation");

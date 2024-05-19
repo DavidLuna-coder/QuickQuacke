@@ -3964,7 +3964,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 4, y: 166.85999}
+  m_AnchoredPosition: {x: 4, y: 163}
   m_SizeDelta: {x: 1738.5, y: 351.29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &713946532
@@ -3987,8 +3987,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 249d0e8f4dc9df64f86a3e1b52fd0b84, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4015,7 +4015,7 @@ Animator:
   m_GameObject: {fileID: 713946530}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4f0aff6b63a3d8441a5a1b0701d801de, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -19051,7 +19051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4389aeece7bf32c4ea601f4cb11b1401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 713946534}
   nameText: {fileID: 1292504917}
   dialogueText: {fileID: 679934777}
   CharacterImage: {fileID: 1216667482}
