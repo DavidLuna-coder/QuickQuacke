@@ -23,7 +23,6 @@ public class Cards : MonoBehaviour
 
     private CardGroup cardGroup;
 
-    public AudioSource audioSource;
     [SerializeField] private AudioClip cardSound;
 
     private void Awake()
@@ -61,7 +60,6 @@ public class Cards : MonoBehaviour
 
     private void OnClick()
     {
-        audioSource.PlayOneShot(cardSound);
         cardGroup.OnCardSelected(this);
     }
 

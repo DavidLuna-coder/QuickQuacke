@@ -7,7 +7,7 @@ using TMPro;
 public class CardGroup : MonoBehaviour
 {
     [SerializeField] private List<Cards> cardList = new List<Cards>();
-    [SerializeField] private List<Cards> selectedCardList = new List<Cards>();
+    [SerializeField] private List<Cards> selectedCardList;
 
     [SerializeField] private Sprite cardIdle;
     [SerializeField] private Sprite cardActive;
@@ -50,8 +50,8 @@ public class CardGroup : MonoBehaviour
                     selectedCard.DisableCardBackButton();
                     selectedCard.SetObjectMatch();
                 }
-                selectedCardList = new List<Cards>();
                 OnCardMatch?.Invoke(this, EventArgs.Empty);
+                selectedCardList = new List<Cards>();
             }
 
             else
@@ -77,8 +77,8 @@ public class CardGroup : MonoBehaviour
         foreach (Cards card in selectedCardList)
         {
             card.Deselect();
-            selectedCardList = new List<Cards>();
         }
+        selectedCardList = new List<Cards>();
     }
 
     private bool CheckIfMatch()

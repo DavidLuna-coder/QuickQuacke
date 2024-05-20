@@ -27,7 +27,7 @@ public class CountInitial : MonoBehaviour
         {
             switch(mostrar)
             {
-                case 0: Empezar(); break;
+                case 0: StartCoroutine(Empezar()); break;
                 case 1: audioSource.PlayOneShot(countdownClip); count.text = "1"; StartCoroutine(Esperar());break;
                 case 2: audioSource.PlayOneShot(countdownClip); count.text = "2"; StartCoroutine(Esperar());break;
                 case 3: audioSource.PlayOneShot(countdownClip); count.text = "3"; StartCoroutine(Esperar());break;
@@ -44,9 +44,13 @@ public class CountInitial : MonoBehaviour
         yield return new WaitForSeconds(1);
         contar  = true;
     }
-    void Empezar()
+    IEnumerator Empezar()
     {
-        SceneManager.LoadScene("MemoryCards");
+        var a = SceneManager.LoadSceneAsync("MemoryCards");
+        while(!a.isDone)
+        {
+            yield return null;
+        }
     }
 
   

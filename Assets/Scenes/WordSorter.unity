@@ -1749,7 +1749,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1878518485}
-  - component: {fileID: 1878518486}
   - component: {fileID: 1878518487}
   - component: {fileID: 1878518488}
   m_Layer: 5
@@ -1780,32 +1779,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -13}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1878518486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1878518484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b1d897f36d5a9c48b72fedd9a7dc2a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortedWords: []
-  PanelAux: {fileID: 346832036}
-  countdown:
-  - {fileID: 1371711199}
-  - {fileID: 275805346}
-  countdownTime: 3
-  texts:
-  - {fileID: 1782853119}
-  - {fileID: 1276119096}
-  correctClip: {fileID: 0}
-  incorrectClip: {fileID: 0}
-  countdownClip: {fileID: 0}
-  audioSource: {fileID: 0}
-  currentText: 
 --- !u!114 &1878518487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1818,6 +1791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b1d897f36d5a9c48b72fedd9a7dc2a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputField: {fileID: 1821153473}
   sortedWords:
   - astronauta
   - nave

@@ -34,7 +34,7 @@ public class MemoryManager : MonoBehaviour
         {
             StartCoroutine(OnCompleteGame());
         }*/
-        if (cardsList.All(x => x == null || x.GetObjectMatch()))
+        if (cardsList.Any(x => x!=null) && cardsList.All(x => x == null || x.GetObjectMatch()))
         {
             Debug.Log("GANAMOOOOOOOOOOOOOOOOOOOOS");
             CardsGameManager.Win();

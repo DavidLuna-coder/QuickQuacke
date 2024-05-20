@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +7,7 @@ public class WordSorter : MonoBehaviour
 {
     private string solution;
     private TextMeshProUGUI lettersDisplayed;
-    private TMP_InputField inputField;
+    public TMP_InputField inputField;
     public List<string> sortedWords = new();
 
     public GameObject PanelAux;
@@ -39,7 +36,7 @@ public class WordSorter : MonoBehaviour
     {
         currentText = countdown[0].text;
         lettersDisplayed = GameObject.Find("MixedWord").GetComponent<TextMeshProUGUI>();
-        inputField = GameObject.Find("Answer").GetComponent<TMP_InputField>();
+
         inputField.onEndEdit.AddListener(SubmitResult);
         solution = SelectWord();
         lettersDisplayed.text = ShuffleWord(solution);

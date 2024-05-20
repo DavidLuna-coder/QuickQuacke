@@ -9,13 +9,14 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public List<Minigame> availableMinigames;
     private Minigame currentMinigame = null;
-    private Queue<Minigame> minigameQueue = new();
+    private Queue<Minigame> minigameQueue = new Queue<Minigame>();
     public float delayBetweenMinigames = 10.0f;
+    private float timer = 0f;
     private bool timerStarted = false;
     private bool resetTimer = false;
     private bool IsFinished = false;
-    private Coroutine _timerCoroutine;
-    private void Start()
+
+    private void Awake()
     {
         if (Instance == null)
         {
@@ -31,18 +32,35 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if (IsFinished) return;
-        if (currentMinigame != null && !currentMinigame.IsFinished() && !timerStarted)
+
+        if (currentMinigame != null && !currentMinigame.IsFinished() && !timerStarted && minigameQueue.Count > 0)
         {
-            if (_timerCoroutine != null)
-                StopCoroutine(_timerCoroutine);
-            if(minigameQueue.Count > 0)
-                _timerCoroutine = StartCoroutine(StartMinigameTimer(delayBetweenMinigames));
+            timerStarted = true;
+            timer = delayBetweenMinigames;
         }
 
-        if(currentMinigame != null && currentMinigame.IsFinished())
+        if (timerStarted)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                timerStarted = false;
+                if (resetTimer)
+                {
+                    resetTimer = false;
+                    return;
+                }
+                else if (currentMinigame != null && !currentMinigame.IsFinished())
+                {
+                    StartCoroutine(Lose());
+                }
+            }
+        }
+
+        if (currentMinigame != null && currentMinigame.IsFinished())
         {
             Debug.Log(currentMinigame.GetGameState().ToString());
-            if(currentMinigame.GetGameState() == GameState.Win)
+            if (currentMinigame.GetGameState() == GameState.Win)
             {
                 timerStarted = false;
                 Debug.Log("Minigame won");
@@ -52,14 +70,15 @@ public class GameManager : MonoBehaviour
             {
                 timerStarted = false;
                 StartCoroutine(Lose());
+                minigameQueue.Clear();
                 return;
             }
         }
     }
+
     public void StartMinigames()
     {
         IsFinished = false;
-        
         ColorConfusionStateManager.ResetGame();
         WordSorterGameManager.Reset();
         CardsGameManager.Reset();
@@ -72,12 +91,12 @@ public class GameManager : MonoBehaviour
         ShuffleMinigames();
         StartNextMinigame();
     }
+
     public void StartNextMinigame()
     {
         if (minigameQueue.Count == 0)
         {
             Debug.Log("No more minigames to play");
-            //Load gameover scene
             SceneManager.LoadScene("Victoria");
             IsFinished = true;
             return;
@@ -110,29 +129,11 @@ public class GameManager : MonoBehaviour
         Debug.Log("Minigames shuffled: " + minigameQueue.Count);
     }
 
-    private IEnumerator StartMinigameTimer(float delay)
-    {
-        timerStarted = true;
-        Debug.Log("Starting minigame timer");
-        yield return new WaitForSeconds(delay);
-        if(resetTimer)
-        {
-            resetTimer = false;
-            timerStarted = false;
-            yield break;
-        }else{
-            timerStarted = false;
-            if(currentMinigame != null && !currentMinigame.IsFinished())
-                StartCoroutine(Lose());
-        }
-    }
-
     public IEnumerator Lose()
     {
         Debug.Log("Minigame lost");
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Derrota");
         IsFinished = true;
-        // Wait until the asynchronous scene fully loads
         while (!asyncLoad.isDone)
         {
             yield return null;

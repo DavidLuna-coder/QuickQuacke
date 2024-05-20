@@ -14,11 +14,11 @@ public class CardMinigame : Minigame
 
     public override GameState GetGameState()
     {
-        return ColorConfusionStateManager.GameState;
+        return CardsGameManager.GameState;
     }
 
     public override bool IsFinished()
     {
-        return ColorConfusionStateManager.IsFinished;
+        return CardsGameManager.IsFinished;
     }
 }
