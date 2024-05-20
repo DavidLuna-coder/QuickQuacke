@@ -75,18 +75,13 @@ public class QuickCountHandler : MonoBehaviour
             currentTime = 0;
         }  
 
-        if(time < currentTime && !fail)
-        {
-            resetSquares();
-            paintSquares();
-            currentTime = 0;
-        }
+        
 
         if (Input.anyKeyDown)
         {
             foreach (KeyCode keyCode in System.Enum.GetValues(typeof(KeyCode)))
             {
-                if (Input.GetKeyDown(keyCode))
+                if (Input.GetKeyDown(keyCode) && keyCode.ToString().StartsWith("Alpha"))
                 {
                     if(keyCode.ToString() == "Alpha" + numSquares)
                     {

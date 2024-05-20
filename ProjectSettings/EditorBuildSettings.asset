@@ -8,19 +8,19 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/pruebaEscenario.unity
     guid: 65bf83532b0b9484182553f3a5774a35
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/JuegoPruebaAle.unity
     guid: 9dad59584f11ccb45a366202814557d5
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/QuickCountMinigame.unity
     guid: 63ea8ba5adfc9a14994338f68be3c75d
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/WordSorter.unity
     guid: e9041bee3da4984409b03a0b1b616717
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/ColorConfusion.unity
     guid: af080fd794214254b8e0ff23790d00a5
   - enabled: 1
@@ -29,16 +29,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MemoryCards.unity
     guid: 5c68aab61b08d4a4dbe2746e5fa25559
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: f7df22800f8dc7048815f381612cd732
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Matematicas.unity
     guid: eb872d5827f3c9441ac5243db53b3973
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Victoria.unity
     guid: 3933f094b12157a4fabdbc6eaba79925
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Derrota.unity
     guid: 62dda07256865e241b859d3850294f86
   m_configObjects: {}
