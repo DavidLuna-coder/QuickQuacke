@@ -31,7 +31,7 @@ public class CardGrid : MonoBehaviour
     {
         int cardsToShow = 0;
         System.Random dif = new System.Random();
-        int difficulty = dif.Next(1, 4);
+        int difficulty = dif.Next(1, 3);
         switch(difficulty)
         {
             case 1: cardsToShow = 5; break;
@@ -39,6 +39,7 @@ public class CardGrid : MonoBehaviour
             case 3: cardsToShow = 7; break;
             default : break;
         }
+        cardsToShow = 5;
 
         for (int i = 0; i < cardsToShow; i++)
         {

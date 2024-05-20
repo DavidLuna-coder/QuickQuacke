@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
     public float delayBetweenMinigames = 10.0f;
     private bool timerStarted = false;
     private bool resetTimer = false;
+    private bool IsFinished = false;
     private Coroutine _timerCoroutine;
     private void Start()
     {
@@ -28,12 +30,13 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (minigameQueue.Count == 0) return;
+        if (IsFinished) return;
         if (currentMinigame != null && !currentMinigame.IsFinished() && !timerStarted)
         {
             if (_timerCoroutine != null)
                 StopCoroutine(_timerCoroutine);
-            _timerCoroutine = StartCoroutine(StartMinigameTimer(delayBetweenMinigames));
+            if(minigameQueue.Count > 0)
+                _timerCoroutine = StartCoroutine(StartMinigameTimer(delayBetweenMinigames));
         }
 
         if(currentMinigame != null && currentMinigame.IsFinished())
@@ -43,17 +46,28 @@ public class GameManager : MonoBehaviour
             {
                 timerStarted = false;
                 Debug.Log("Minigame won");
+                StartNextMinigame();
             }
             else
             {
                 timerStarted = false;
-                Debug.Log("Minigame lost");
+                StartCoroutine(Lose());
+                return;
             }
-            StartNextMinigame();
         }
     }
     public void StartMinigames()
     {
+        IsFinished = false;
+        
+        ColorConfusionStateManager.ResetGame();
+        WordSorterGameManager.Reset();
+        CardsGameManager.Reset();
+        SimonSaysStateManager.Reset();
+        MathProblemGameManager.Reset();
+        QuickCountGameManager.Reset();
+
+        minigameQueue.Clear();
         Debug.Log("Starting minigames");
         ShuffleMinigames();
         StartNextMinigame();
@@ -63,6 +77,9 @@ public class GameManager : MonoBehaviour
         if (minigameQueue.Count == 0)
         {
             Debug.Log("No more minigames to play");
+            //Load gameover scene
+            SceneManager.LoadScene("Victoria");
+            IsFinished = true;
             return;
         }
         currentMinigame = minigameQueue.Dequeue();
@@ -105,7 +122,20 @@ public class GameManager : MonoBehaviour
             yield break;
         }else{
             timerStarted = false;
-            if(currentMinigame != null && !currentMinigame.IsFinished()) StartNextMinigame();
+            if(currentMinigame != null && !currentMinigame.IsFinished())
+                StartCoroutine(Lose());
+        }
+    }
+
+    public IEnumerator Lose()
+    {
+        Debug.Log("Minigame lost");
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Derrota");
+        IsFinished = true;
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
         }
     }
 }

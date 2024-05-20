@@ -18,4 +18,10 @@ public static class ColorConfusionStateManager
         GameState = GameState.Lose;
         IsFinished = true;
     }
+
+    public static void ResetGame()
+    {
+        GameState = GameState.Playing;
+        IsFinished = false;
+    }
 }

@@ -34,18 +34,11 @@ public class MemoryManager : MonoBehaviour
         {
             StartCoroutine(OnCompleteGame());
         }*/
-        if (cardsList.All(x => x.GetObjectMatch()))
+        if (cardsList.All(x => x == null || x.GetObjectMatch()))
         {
             Debug.Log("GANAMOOOOOOOOOOOOOOOOOOOOS");
             CardsGameManager.Win();
-            StartCoroutine(OnCompleteGame());
         }
-    }
-
-    private IEnumerator OnCompleteGame()
-    {
-        yield return new WaitForSeconds(0.75f);
-        Debug.Log("GANAMOOOOOOOOOOOOOOOOOOOOS");   
     }
 
     public void Subscribe(Cards card)
