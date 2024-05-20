@@ -1440,7 +1440,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\xA1Realiza 10 operaciones en 20 segundos!"
+  m_text: "\xA1Realiza las operaciones!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4ec38be9f2e208b4392e69df088ded78, type: 2}
   m_sharedMaterial: {fileID: 7348195235217784721, guid: 4ec38be9f2e208b4392e69df088ded78, type: 2}
