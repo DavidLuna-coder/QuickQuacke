@@ -114,7 +114,7 @@ public class ExplainerSimon : MonoBehaviour
         PlayerTaskList.Add(Random.Range(0,4));
         PlayerTaskList.Add(Random.Range(0,4));
         PlayerTaskList.Add(Random.Range(0,4));
-        //PlayerTaskList.Add(Random.Range(0,4));
+        PlayerTaskList.Add(Random.Range(0,4));
         foreach(int index in PlayerTaskList)
         {
             yield return StartCoroutine(HighlightButton(index));

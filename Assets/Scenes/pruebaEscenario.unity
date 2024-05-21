@@ -18614,7 +18614,7 @@ MonoBehaviour:
     name: "Cient\xEDfico"
     sentences:
     - sentence: "Cuida ese tono muchacha. Hoy es el d\xEDa en el que se decidir\xE1
-        quien tomar\xE1 el puesto."
+        qui\xE9n tomar\xE1 el puesto."
       expression: 1
       audio: {fileID: 8300000, guid: a3bd5d21fc180834d98761355d10b9be, type: 3}
     expressionsSprites:
@@ -18761,8 +18761,6 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: 9103376865249821540, guid: 33da2e19e9a18fc4780d168aec9dbb65, type: 2}
     value: {fileID: 625230823}
-  - key: {fileID: -5620695436915355122, guid: 33da2e19e9a18fc4780d168aec9dbb65, type: 2}
-    value: {fileID: 741635106}
   - key: {fileID: 1221701246625569003, guid: 33da2e19e9a18fc4780d168aec9dbb65, type: 2}
     value: {fileID: 625230823}
   - key: {fileID: 8450134358025532010, guid: 33da2e19e9a18fc4780d168aec9dbb65, type: 2}
@@ -18773,6 +18771,8 @@ PlayableDirector:
     value: {fileID: 1519598530}
   - key: {fileID: 2361646937574761764, guid: 33da2e19e9a18fc4780d168aec9dbb65, type: 2}
     value: {fileID: 1243992960}
+  - key: {fileID: 3551848868434094231, guid: 33da2e19e9a18fc4780d168aec9dbb65, type: 2}
+    value: {fileID: 741635106}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1650566237

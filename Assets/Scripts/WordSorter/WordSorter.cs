@@ -18,7 +18,7 @@ public class WordSorter : MonoBehaviour
 
     [SerializeField] private GameObject[] texts;
 
-    
+
     [SerializeField] private AudioClip correctClip;
 
     [SerializeField] private AudioClip incorrectClip;
@@ -31,17 +31,24 @@ public class WordSorter : MonoBehaviour
 
     private float currentTime;
     private bool start;
-
+    private const int POINTS_TO_WIN = 3;
+    private int points = 0;
     void Start()
     {
         currentText = countdown[0].text;
         lettersDisplayed = GameObject.Find("MixedWord").GetComponent<TextMeshProUGUI>();
 
         inputField.onEndEdit.AddListener(SubmitResult);
-        solution = SelectWord();
-        lettersDisplayed.text = ShuffleWord(solution);
+        StartNextRound();
 
         Debug.Log("Solution: " + solution + " Letters: " + lettersDisplayed.text);
+    }
+    void StartNextRound()
+    {
+        solution = SelectWord();
+        inputField.text = string.Empty;
+        inputField.ActivateInputField();
+        lettersDisplayed.text = ShuffleWord(solution);
     }
     private string ShuffleWord(string word)
     {
@@ -70,7 +77,11 @@ public class WordSorter : MonoBehaviour
         {
             Debug.Log("Correct!");
             audioSource.PlayOneShot(correctClip);
-            WordSorterGameManager.Win();
+            points++;
+            if (points == POINTS_TO_WIN)
+                WordSorterGameManager.Win();
+            else
+                StartNextRound();
         }
         else
         {
@@ -85,7 +96,7 @@ public class WordSorter : MonoBehaviour
         countdownTime -= Time.deltaTime;
 
 
-        if(currentText != countdown[0].text && !start)
+        if (currentText != countdown[0].text && !start)
         {
             audioSource.PlayOneShot(countdownClip);
             currentText = countdown[0].text;
@@ -95,21 +106,22 @@ public class WordSorter : MonoBehaviour
 
         currentTime += Time.deltaTime;
 
-         if(countdownTime < 0 && !start){
+        if (countdownTime < 0 && !start)
+        {
 
             print("Empezando");
-            
+
             start = true;
-            countdown[0].gameObject.SetActive(false);          
-            
+            countdown[0].gameObject.SetActive(false);
+
             texts[0].SetActive(false);
             texts[1].SetActive(false);
             PanelAux.SetActive(false);
-            
+
 
 
             currentTime = 0;
-        }  
+        }
 
 
     }
